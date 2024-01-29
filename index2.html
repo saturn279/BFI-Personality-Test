@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta name="description" content="BFI Personality test to discover traits of your personality">
+<title>BFI-10 Personality Test</title>
+
+<style>
+.slide {
+    position: absolute;
+    left: -100px;
+  
+    background: blue;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
+
+
+
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+
+
+
+
+
+
+html {
+    font-family: sans-serif;
+  }
+  
+  
+  label {
+    margin-right: 15px;
+    line-height: 32px;
+  }
+
+
+fieldset{
+
+
+border:0px solid;
+
+background-color:#AAA;
+color:#222;
+transition: 0.2s all;
+    
+background: #7489d8;
+                background: -webkit-linear-gradient(to right,#BBB,#DDD);
+                background: linear-gradient(to right,#BBB,#DDD);
+                box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+                cursor:pointer;
+                border-radius: 15px;
+border: 0 !important;
+
+}
+
+
+
+
+
+
+fieldset:hover, fieldset:active{
+
+
+background-color:#AAA;
+
+transition: 0.2s all;
+    
+background: #7489d8;
+                background: -webkit-linear-gradient(to right,#DDD,#AAA);
+                background: linear-gradient(to right,#DDD,#AAA);
+                box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+                cursor:pointer;
+                
+border: 0 !important;
+
+}
+
+body{
+
+
+margin:0;
+padding:0;
+
+    //background-image: url(img.webp);
+   background-color:#CCC;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top top;
+
+
+}
+  
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+  
+    border: 2px solid #999;
+transition: 0.2s all linear;
+    margin-right: 5px;
+  
+    position: relative;
+    top: 4px;
+  }
+  
+  input:checked {
+    border: 6px solid #7489d8;
+  }
+  
+  button,
+  legend {
+    background-color:#111;
+    color: #DDD;
+    padding: 5px 10px;
+    border-radius: 0;
+    border: 0;
+    font-size: 18px;
+    font-decoration:bold;
+    border-color: rgb(28,48,48);
+   
+  }
+
+
+button{
+
+
+
+    		color: white;
+                padding: 10px 30px;
+                border-radius: 5px;
+background: #7489d8;
+                background: -webkit-linear-gradient(to left,#7489d8,#506ACE);
+                background: linear-gradient(to left,#7489d8,#506ACE);
+                box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+                cursor:pointer;
+                
+border: 0 !important;
+		
+
+
+
+}
+  
+  button:h
+  
+  over,
+  button:focus {
+    color: #999;
+  }
+  
+  button:active {
+    background-color: white;
+    color: black;
+    outline: 1px solid black;
+  }
+  html{
+      background-color:#CCC;
+      color:#222;
+  }
+  
+  label{
+		
+
+}
+
+ legend{
+ 	font-weight: bold;
+ 	font-style: italic;
+        font-size:18px;
+        border-radius:5px;
+ }
+  </style>
+
+
+
+</head>
+
+<body onload='document.getElementById("btnp").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});'>
+
+
+<script>
+
+
+
+ function cal(){
+      var i = 1;
+      
+      var a = [];
+          for(i=1;i<11;i++){
+            const rbs = document.querySelectorAll(`input[name="q${i}"]`);
+            let selectedValue;
+            for (const rb of rbs) {
+                if (rb.checked) {
+                    selectedValue = rb.value;
+                    a[i] = parseInt(selectedValue);
+                    break; 
+                }
+              }
+          }// for i 
+        console.log(a);
+        const extraversion = -(a[1])+a[6];
+        const agreeableness= a[2]+-(a[7]);
+        const conscietiousness = -(a[3])+a[8];
+        const neurotisism = -(a[4])+a[9];
+        const openness = -(a[5])+a[10];
+       
+        res = document.getElementById('results');
+
+        res.style.paddingBottom = "150%";
+      
+        res.innerHTML = `
+
+
+<fieldset> 
+
+
+
+
+<legend> Your score </legend>
+<br><br>
+
+<table style="border-spacing:10px;">
+              <tr>
+					<th> &nbsp Factor </th> <th>Score ( -4 to 4 )</th>
+			  </tr>
+			   <tr>
+				<b> <td> &nbsp Extraversion </td> <td> ${extraversion} </td>
+				</tr>
+				<tr>
+				<td>
+					&nbsp Sympathy</td> <td> ${agreeableness} </td>
+				</tr>
+
+
+<tr> <td>
+&nbsp  Organization</td><td> ${conscietiousness}  </td>
+</tr>
+
+
+<tr><td> 
+&nbsp Emotional Stability</td> <td> ${-neurotisism} </td>
+</tr>
+
+
+<tr>
+    <td>&nbsp Intellect</td> <td> ${openness} </td>
+</tr>
+</em>
+</table><hr></b><br>
+<P><b> &nbspExtraversion:</b> Traits like talkative, energetic, and assertive.
+</P>
+<P><b> &nbspSympathy:</b> Show's kindness and affection	</P>
+<P><b> &nbspOrganization:</b> Being thorough, planful and organized.	</P>
+<P><b> &nbspEmotional Stability:</b> Show's tolerance and emotional intelligence.	</P>
+<P><b> &nbspIntellect:</b> Insightful, imaginative with wide interests.</P>
+</em>
+    
+<br>
+<a target="_blank" style='color:#5567a6;' href="https://psdlab.uoregon.edu/measuring-the-big-five-personality-domains/" > Learn more about personality factors </a>
+    <br><br>                        
+</div>
+</fieldset>
+
+`;
+        
+      
+        res.scrollIntoView({behavior: "smooth", inline: "nearest"});
+      
+      };
+      
+   console.log("hello there! Have a suggestion? Contact me.");
+  </script>
+
+<div style="position: relative;
+    background-image: url(img.webp);
+   background-color:#DDD;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}">
+<br>
+<h2 id="title1" style="font-size: 40px;
+font-weight: bold;
+font-family: 'Neuton', serif;
+padding-top: 110%;
+padding-bottom: 35%;
+margin: 15px;
+color: #000000;
+opacity:0.8;"> <b>BFI-10 Personality Test</b>
+<br>
+
+<button type="button" style="padding:15px 80px 15px 30px; border-radius: 25px;
+position:relative;
+left:-50px;
+background-color:#7489d8;
+opacity:1;
+" onclick='document.getElementById("ftitle").scrollIntoView({behavior: "smooth"});'><em><b> START</b> </em></button>
+<p id="btnp"> </p>
+</h2>
+</div>
+
+
+
+
+<div style="margin:3px; padding:3px;">
+<fieldset id="ftitle" style="background-color:#AAA;
+color:#333;
+
+background: #7489d8;
+                background: -webkit-linear-gradient(to right,#222,#555);
+                background: linear-gradient(to right,#222,#555);
+                box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+                cursor:pointer;
+                
+border: 0 !important;" >
+<h2 id="title2" style=" color:#EFEFEF; font-family: 'Neuton', serif;text-justify: newspaper; margin-left: 15px;  padding:30px 0px 30px 0px;"><em>10 Questions to discover quintessence of your personality.</em></h2></fieldset><br>
+<form>
+    <fieldset>
+      <legend>You are reserved</b>
+    </legend>
+  <div>
+  <input type="radio" id="q11" name="q1" value="1">
+  <label for="q11">Disagree strongly</label></input><br>
+  <input type="radio" id="q12" name="q1" value="2">
+  <label for="q12">Disagree a little</label><br></input>
+  <input type="radio" id="q13" name="q1" value="3" checked>
+  <label for="q13">Neither agree or disagree</label><br>
+  <input type="radio" id="q14" name="q1" value="4">
+  <label for="q14">Agree a little</label><br>
+  <input type="radio" id="q15" name="q1" value="5">
+  <label for="q15">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+<fieldset>
+    <legend>You are generally trusting
+  </legend>
+<div>
+  <input type="radio" id="q21" name="q2" value="1">
+  <label for="q21">Disagree strongly</label></input><br>
+  <input type="radio" id="q22" name="q2" value="2">
+  <label for="q22">Disagree a little</label><br></input>
+  <input type="radio" id="q23" name="q2" value="3" checked>
+  <label for="q23">Neither agree or disagree</label><br>
+  <input type="radio" id="q24" name="q2" value="4">
+  <label for="q24">Agree a little</label><br>
+  <input type="radio" id="q25" name="q2" value="5">
+  <label for="q25">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You tend to be lazy
+  </legend>
+<div>
+  <input type="radio" id="q31" name="q3" value="1">
+  <label for="q31">Disagree strongly</label></input><br>
+  <input type="radio" id="q32" name="q3" value="2">
+  <label for="q32">Disagree a little</label><br></input>
+  <input type="radio" id="q33" name="q3" value="3" checked>
+  <label for="q33">Neither agree or disagree</label><br>
+  <input type="radio" id="q34" name="q3" value="4">
+  <label for="q34">Agree a little</label><br>
+  <input type="radio" id="q35" name="q3" value="5">
+  <label for="q35">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You are relaxed and handle stress well
+  </legend>
+<div>
+  <input type="radio" id="q41" name="q4" value="1">
+  <label for="q41">Disagree strongly</label></input><br>
+  <input type="radio" id="q42" name="q4" value="2">
+  <label for="q42">Disagree a little</label><br></input>
+  <input type="radio" id="q43" name="q4" value="3" checked>
+  <label for="q43">Neither agree or disagree</label><br>
+  <input type="radio" id="q44" name="q4" value="4">
+  <label for="q44">Agree a little</label><br>
+  <input type="radio" id="q45" name="q4" value="5">
+  <label for="q45">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You have few artistic interests
+  </legend>
+<div>
+  <input type="radio" id="q51" name="q5" value="1">
+  <label for="q51">Disagree strongly</label></input><br>
+  <input type="radio" id="q52" name="q5" value="2">
+  <label for="q52">Disagree a little</label><br></input>
+  <input type="radio" id="q53" name="q5" value="3" checked>
+  <label for="q53">Neither agree or disagree</label><br>
+  <input type="radio" id="q54" name="q5" value="4">
+  <label for="q54">Agree a little</label><br>
+  <input type="radio" id="q55" name="q5" value="5">
+  <label for="q55">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You are outgoing and sociable
+  </legend>
+<div>
+  <input type="radio" id="q61" name="q6" value="1">
+  <label for="q61">Disagree strongly</label></input><br>
+  <input type="radio" id="q62" name="q6" value="2">
+  <label for="q62">Disagree a little</label><br></input>
+  <input type="radio" id="q63" name="q6" value="3" checked>
+  <label for="q63">Neither agree or disagree</label><br>
+  <input type="radio" id="q64" name="q6" value="4">
+  <label for="q64">Agree a little</label><br>
+  <input type="radio" id="q65" name="q6" value="5">
+  <label for="q65">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You tend to find fault with others
+  </legend>
+<div>
+  <input type="radio" id="q71" name="q7" value="1">
+  <label for="q71">Disagree strongly</label></input><br>
+  <input type="radio" id="q72" name="q7" value="2">
+  <label for="q72">Disagree a little</label><br></input>
+  <input type="radio" id="q73" name="q7" value="3" checked>
+  <label for="q73">Neither agree or disagree</label><br>
+  <input type="radio" id="q74" name="q7" value="4">
+  <label for="q74">Agree a little</label><br>
+  <input type="radio" id="q75" name="q7" value="5">
+  <label for="q75">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You do a thorough job
+  </legend>
+<div>
+  <input type="radio" id="q81" name="q8" value="1">
+  <label for="q81">Disagree strongly</label></input><br>
+  <input type="radio" id="q82" name="q8" value="2">
+  <label for="q82">Disagree a little</label><br></input>
+  <input type="radio" id="q83" name="q8" value="3" checked>
+  <label for="q83">Neither agree or disagree</label><br>
+  <input type="radio" id="q84" name="q8" value="4">
+  <label for="q84">Agree a little</label><br>
+  <input type="radio" id="q85" name="q8" value="5">
+  <label for="q85">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You get nervous easily
+  </legend>
+<div>
+  <input type="radio" id="q91" name="q9" value="1">
+  <label for="q91">Disagree strongly</label></input><br>
+  <input type="radio" id="q92" name="q9" value="2">
+  <label for="q92">Disagree a little</label><br></input>
+  <input type="radio" id="q93" name="q9" value="3" checked>
+  <label for="q93">Neither agree or disagree</label><br>
+  <input type="radio" id="q94" name="q9" value="4">
+  <label for="q94">Agree a little</label><br>
+  <input type="radio" id="q95" name="q9" value="5">
+  <label for="q95">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You have an active imagination
+  </legend>
+<div>
+  <input type="radio" id="q101" name="q10" value="1">
+  <label for="q101">Disagree strongly</label></input><br>
+  <input type="radio" id="q102" name="q10" value="2">
+  <label for="q102">Disagree a little</label><br></input>
+  <input type="radio" id="q103" name="q10" value="3" checked>
+  <label for="q103">Neither agree or disagree</label><br>
+  <input type="radio" id="q104" name="q10" value="4">
+  <label for="q104">Agree a little</label><br>
+  <input type="radio" id="q105" name="q10" value="5">
+  <label for="q105">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+<button onclick="cal();" id="btn" type="button" value="Results" style="padding: 15px 30px 15px 30px; margin: 7px 7px 10px 10px; 
+margin-left:20px; background-color:#7489d8; opacity:0.8; border-radius: 25px;">
+   <b><em> Results </em> </b>
+  </button>
+
+
+<br><br><br>
+ <div style="
+margin:10px;
+
+
+">
+  <p id="results" style='font-size: 1.1rem;
+    text-align:justify;
+    padding-top:5%;
+    line-spacing:3px;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+'
+><br></p>
+</div>
+
+</body>
+
+
+</html>
+

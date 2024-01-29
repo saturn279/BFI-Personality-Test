@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>html {
+    font-family: sans-serif;
+  }
+  
+  
+  label {
+    margin-right: 15px;
+    line-height: 32px;
+  }
+
+
+fieldset{
+
+
+border:1px solid;
+
+
+}
+
+body{
+
+
+margin:0;
+padding:0;
+
+
+}
+  
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+  
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+    margin-right: 5px;
+  
+    position: relative;
+    top: 4px;
+  }
+  
+  input:checked {
+    border: 6px solid #7489d8;
+  }
+  
+  button,
+  legend {
+    background-color:#111;
+    color: #DDD;
+    padding: 5px 10px;
+    border-radius: 0;
+    border: 0;
+    font-size: 16px;
+    font-decoration:bold;
+    border-color: rgb(28,48,48);
+  }
+  
+  button:h
+  
+  over,
+  button:focus {
+    color: #999;
+  }
+  
+  button:active {
+    background-color: white;
+    color: black;
+    outline: 1px solid black;
+  }
+  html{
+      background-color:#222;
+      color:#DDD;
+  }
+  
+  label{
+		
+
+}
+
+ legend{
+ 	font-weight: bold;
+ 	font-style: italic;
+        
+ }
+  </style>
+
+
+
+</head>
+
+<body>
+
+
+<script>
+
+
+ function cal(){
+      var i = 1;
+      
+      var a = [];
+          for(i=1;i<11;i++){
+            const rbs = document.querySelectorAll(`input[name="q${i}"]`);
+            let selectedValue;
+            for (const rb of rbs) {
+                if (rb.checked) {
+                    selectedValue = rb.value;
+                    a[i] = parseInt(selectedValue);
+                    break;
+                }
+              }
+          }// for i 
+        console.log(a);
+        const extraversion = -(a[1])+a[6];
+        const agreeableness= a[2]+-(a[7]);
+        const conscietiousness = -(a[3])+a[8];
+        const neurotisism = -(a[4])+a[9];
+        const openness = -(a[5])+a[10];
+       
+        res = document.getElementById('results');
+
+        res.style.paddingBottom = "150%";
+      
+        res.innerHTML = `<br><br><em><br>Your score between (-4 and 4):<br> <br> &nbsp Extraversion: ${extraversion} <br> &nbsp Agreeableness: ${agreeableness} <br> &nbsp  Conscietiousness: ${conscietiousness}  <br> &nbsp Neuroticism: ${neurotisism} <br>&nbsp Openness: ${openness} </em>
+<br><br>
+<a target="_blank" style='color:#7489d8;' href="https://psdlab.uoregon.edu/measuring-the-big-five-personality-domains/" > Learn more about personality factors </a>
+
+
+
+
+`;
+        
+      
+        res.scrollIntoView(true); 
+      
+      };
+      
+   
+    </script>
+
+<div style="position: relative;
+    background-image: url(img.jpg);
+   background-color:#ccc;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}">
+
+<h2 style="font-size: 40px;
+font-weight: bold;
+font-family: 'Neuton', serif;
+padding-bottom: 100px;
+padding-top: 100px;
+margin: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+color: #000000;
+opacity:0.6;
+text-shadow: 10px;
+position: bottom;"> <b>BFI-10 Personality Test</b></h2>
+</div>
+
+
+
+
+<div style="margin:7px; padding:7px;">
+<h3 style=" font-family: 'Neuton', serif;text-justify: newspaper; margin-left: 15px;"><em>10 Questions to discover quintessence of your personality.</em></h3>
+<form>
+    <fieldset>
+      <legend>You are reserved</b>
+    </legend>
+  <div>
+  <input type="radio" id="q11" name="q1" value="1">
+  <label for="q11">Disagree strongly</label></input><br>
+  <input type="radio" id="q12" name="q1" value="2">
+  <label for="q12">Disagree a little</label><br></input>
+  <input type="radio" id="q13" name="q1" value="3" checked>
+  <label for="q13">Neither agree or disagree</label><br>
+  <input type="radio" id="q14" name="q1" value="4">
+  <label for="q14">Agree a little</label><br>
+  <input type="radio" id="q15" name="q1" value="5">
+  <label for="q15">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+<fieldset>
+    <legend>You are generally trusting
+  </legend>
+<div>
+  <input type="radio" id="q21" name="q2" value="1">
+  <label for="q21">Disagree strongly</label></input><br>
+  <input type="radio" id="q22" name="q2" value="2">
+  <label for="q22">Disagree a little</label><br></input>
+  <input type="radio" id="q23" name="q2" value="3" checked>
+  <label for="q23">Neither agree or disagree</label><br>
+  <input type="radio" id="q24" name="q2" value="4">
+  <label for="q24">Agree a little</label><br>
+  <input type="radio" id="q25" name="q2" value="5">
+  <label for="q25">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You tend to be lazy
+  </legend>
+<div>
+  <input type="radio" id="q31" name="q3" value="1">
+  <label for="q31">Disagree strongly</label></input><br>
+  <input type="radio" id="q32" name="q3" value="2">
+  <label for="q32">Disagree a little</label><br></input>
+  <input type="radio" id="q33" name="q3" value="3" checked>
+  <label for="q33">Neither agree or disagree</label><br>
+  <input type="radio" id="q34" name="q3" value="4">
+  <label for="q34">Agree a little</label><br>
+  <input type="radio" id="q35" name="q3" value="5">
+  <label for="q35">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You are relaxed and handle stress well
+  </legend>
+<div>
+  <input type="radio" id="q41" name="q4" value="1">
+  <label for="q41">Disagree strongly</label></input><br>
+  <input type="radio" id="q42" name="q4" value="2">
+  <label for="q42">Disagree a little</label><br></input>
+  <input type="radio" id="q43" name="q4" value="3" checked>
+  <label for="q43">Neither agree or disagree</label><br>
+  <input type="radio" id="q44" name="q4" value="4">
+  <label for="q44">Agree a little</label><br>
+  <input type="radio" id="q45" name="q4" value="5">
+  <label for="q45">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You have few artistic interests
+  </legend>
+<div>
+  <input type="radio" id="q51" name="q5" value="1">
+  <label for="q51">Disagree strongly</label></input><br>
+  <input type="radio" id="q52" name="q5" value="2">
+  <label for="q52">Disagree a little</label><br></input>
+  <input type="radio" id="q53" name="q5" value="3" checked>
+  <label for="q53">Neither agree or disagree</label><br>
+  <input type="radio" id="q54" name="q5" value="4">
+  <label for="q54">Agree a little</label><br>
+  <input type="radio" id="q55" name="q5" value="5">
+  <label for="q55">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You are outgoing and sociable
+  </legend>
+<div>
+  <input type="radio" id="q61" name="q6" value="1">
+  <label for="q61">Disagree strongly</label></input><br>
+  <input type="radio" id="q62" name="q6" value="2">
+  <label for="q62">Disagree a little</label><br></input>
+  <input type="radio" id="q63" name="q6" value="3" checked>
+  <label for="q63">Neither agree or disagree</label><br>
+  <input type="radio" id="q64" name="q6" value="4">
+  <label for="q64">Agree a little</label><br>
+  <input type="radio" id="q65" name="q6" value="5">
+  <label for="q65">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You tend to find fault with others
+  </legend>
+<div>
+  <input type="radio" id="q71" name="q7" value="1">
+  <label for="q71">Disagree strongly</label></input><br>
+  <input type="radio" id="q72" name="q7" value="2">
+  <label for="q72">Disagree a little</label><br></input>
+  <input type="radio" id="q73" name="q7" value="3" checked>
+  <label for="q73">Neither agree or disagree</label><br>
+  <input type="radio" id="q74" name="q7" value="4">
+  <label for="q74">Agree a little</label><br>
+  <input type="radio" id="q75" name="q7" value="5">
+  <label for="q75">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You do a thorough job
+  </legend>
+<div>
+  <input type="radio" id="q81" name="q8" value="1">
+  <label for="q81">Disagree strongly</label></input><br>
+  <input type="radio" id="q82" name="q8" value="2">
+  <label for="q82">Disagree a little</label><br></input>
+  <input type="radio" id="q83" name="q8" value="3" checked>
+  <label for="q83">Neither agree or disagree</label><br>
+  <input type="radio" id="q84" name="q8" value="4">
+  <label for="q84">Agree a little</label><br>
+  <input type="radio" id="q85" name="q8" value="5">
+  <label for="q85">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You get nervous easily
+  </legend>
+<div>
+  <input type="radio" id="q91" name="q9" value="1">
+  <label for="q91">Disagree strongly</label></input><br>
+  <input type="radio" id="q92" name="q9" value="2">
+  <label for="q92">Disagree a little</label><br></input>
+  <input type="radio" id="q93" name="q9" value="3" checked>
+  <label for="q93">Neither agree or disagree</label><br>
+  <input type="radio" id="q94" name="q9" value="4">
+  <label for="q94">Agree a little</label><br>
+  <input type="radio" id="q95" name="q9" value="5">
+  <label for="q95">Agree Strongly</label><br>
+</div>
+
+</fieldset><br><br>
+
+
+<fieldset>
+    <legend>You have an active imagination
+  </legend>
+<div>
+  <input type="radio" id="q101" name="q10" value="1">
+  <label for="q101">Disagree strongly</label></input><br>
+  <input type="radio" id="q102" name="q10" value="2">
+  <label for="q102">Disagree a little</label><br></input>
+  <input type="radio" id="q103" name="q10" value="3" checked>
+  <label for="q103">Neither agree or disagree</label><br>
+  <input type="radio" id="q104" name="q10" value="4">
+  <label for="q104">Agree a little</label><br>
+  <input type="radio" id="q105" name="q10" value="5">
+  <label for="q105">Agree Strongly</label><br>
+</div>
+
+</fieldset><br>
+<button onclick="cal();" id="btn" type="button" value="Results" style="padding: 12px 20px 12px 20px; margin: 7px 7px 10px 10px; 
+margin-left:20px; background-color:#7489d8; border-radius: 3%;">
+   <b> Results </b>
+  </button>
+ <div style="padding-left: 15px;">
+  <span id="results" style='font-size: 1.1rem;
+    text-align:justify;
+    line-spacing:3px;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+'
+></span>
+</div>
+
+</body>
+
+
+</html>
+
